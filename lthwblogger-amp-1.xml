@@ -1,78 +1,169 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html amp='amp' lang='en'>
-&lt;!-- <head> --&gt;
-    <meta charset='utf-8'/>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
-    <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
-    <title><data:blog.pageTitle/></title>
-    <link expr:href='data:blog.url' rel='canonical'/>
-    &lt;!-- <b:skin><![CDATA[]]></b:skin>
+  &lt;!--<head>--&gt;
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <meta content='ie=edge' http-equiv='X-UA-Compatible' />
+    <title>
+      <data:blog.pageTitle />
+    </title>
+    <link expr:href='data:blog.url' rel='canonical' />
+    &lt;!--
+    <b:skin>
+      <![CDATA[]]>
+    </b:skin>
     <style amp-custom='amp-custom'>
       body {font-family: sans-serif;line-height: 1.5rem;}
-      .main {margin: 0 auto;padding: 1rem;}
+      .container {padding: 0 1rem;}
+      .main {margin: 0 auto;max-width: 50rem;}
     </style>
-    <style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript>
+      <style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
+    </noscript>
+    <script async='async' src='https://cdn.ampproject.org/v0.js' />
+    <script async='async' custom-element='amp-youtube' src='https://cdn.ampproject.org/v0/amp-youtube-0.1.js' />
 
-</head>
-<body>
-  <b:section id='header' class='header' showaddelement='no'>
-  </b:section>
+  </head>
+  <body>
+    <div class='container'>
+      <b:section class='header' id='header' showaddelement='yes' tag='header'>
+        <b:widget id='Header1' locked='no' title='' type='Header' version='2'>
+          <b:includable id='main'>
+            <data:title />
+            <data:description />
+          </b:includable>
+        </b:widget>
+      </b:section>
 
-  <b:section id='main' class='main' showaddelement='yes'>
-      <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts'>
-      <b:widget-settings>
-        <b:widget-setting name='numItemsToShow'>3</b:widget-setting>
-        <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-        <b:widget-setting name='showSnippets'>true</b:widget-setting>
-        <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-      </b:widget-settings>
-      <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
-  <div class='widget-content popular-posts'>
-    <ul>
-      <b:loop values='data:posts' var='post'>
-      <li>
-        <b:if cond='!data:showThumbnails'>
-          <b:if cond='!data:showSnippets'>
-            <!-- (1) No snippet/thumbnail -->
-            <a expr:href='data:post.href'><data:post.title/></a>
-          <b:else/>
-            <!-- (2) Show only snippets -->
-            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-            <div class='item-snippet'><data:post.snippet/></div>
-          </b:if>
-        <b:else/>
-          <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
-          <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
-            <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
-              <div class='item-thumbnail'>
-                <a expr:href='data:post.href' target='_blank'>
-                  <b:with value='data:post.featuredImage.isResizable                                  ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
-                    <amp-img width='480' height='270' alt=''  expr:src='data:image'/>
-                  </b:with>
-                </a>
-              </div>
-            </b:if>
-            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-            <b:if cond='data:showSnippets'>
-              <div class='item-snippet'><data:post.snippet/></div>
-            </b:if>
-          </div>
-          <div style='clear: both;'/>
-        </b:if>
-      </li>
-      </b:loop>
-    </ul>
-  </div>
-</b:includable>
-    </b:widget>
-  </b:section>
+      <b:section class='main' id='main' showaddelement='yes' tag='main'>
+        <b:widget id='Blog2' locked='true' title='Blog Posts' type='Blog' version='2'>
+          <b:includable id='main'>
+            <data:title />
+            <data:description />
+            <data:olderPageUrl />
+            <data:newerPageUrl />
+            <data:navMessage />
+            <data:adCode />
+            <data:adClientId />
+            <data:cmtIframeInitialHeight />
+            <data:showCmtPopup />
+            <data:messages.blogComment />
+            <b:loop values='data:feedLinks' var='feedLink'>
+              <data:feedLink.url />
+              <data:feedLink.name />
+              <data:feedLink.feedType />
+              <data:feedLink.mimeType />
+            </b:loop>
+            <b:loop values='data:posts' var='post'>
+              <data:post.id />
+              <data:post.title />
+              <data:post.body />
+              <data:post.snippets.short />
+              <data:post.snippets.long />
+              <data:post.url />
+              <data:post.link />
+              <data:post.thumbnailUrl />
+              <data:post.featuredImage />
+              <data:post.date />
+              <data:post.lastUpdated />
+              <data:post.author.name />
+              <data:post.author.profileUrl />
+              <data:post.author.aboutMe />
+              <data:post.author.authorPhoto.image />
+              <data:post.author.authorPhoto.width />
+              <data:post.author.authorPhoto.height />
+              <data:post.hasJumpLink />
+              <data:post.adminClass />
+              <data:post.postAuthorClass />
+              <data:post.allowComments />
+              <data:post.allowNewComments />
+              <data:post.noNewCommentsText />
+              <data:post.numberOfComments />
+              <data:post.commentsUrl />
+              <data:post.commentsUrlOnclick />
+              <data:post.commentPagingRequired />
+              <data:post.hasOlderLinks />
+              <data:post.oldLinkClass />
+              <data:post.oldestLinkUrl />
+              <data:post.olderLinkUrl />
+              <data:post.hasNewerLinks />
+              <data:post.newLinkClass />
+              <data:post.newerLinkUrl />
+              <data:post.newestLinkUrl />
+              <data:post.commentRangeText />
+              <data:post.commentFormIframeSrc />
+              <data:post.embedCommentForm />
+              <data:post.showThreadedComments />
+              <data:post.commentSrc />
+              <data:post.commentFeed />
+              <data:post.commentJso />
+              <data:post.commentHtml />
+              <data:post.commentMsgs />
+              <data:post.commentConfig />
+              <data:post.avatarIndentClass />
+              <data:post.includeAd />
+              <data:post.adNumber />
+              <data:post.allowIframeComments />
+              <data:post.iframeCommentSrc />
+              <data:post.viewType />
+              <data:post.commentSource />
+              <data:post.emailPostUrl />
+              <data:post.shareUrl />
+              <data:post.reactionsUrl />
+              <b:comment><data:post.cmtfpIframe /></b:comment>
+              <data:post.appRpcRelayPath />
+              <data:post.location.mapsUrl />
+              <data:post.location.name />
+              <b:loop values='data:labels' var='label'>
+                <data:label.name />
+                <data:label.url />
+              </b:loop>
+              <b:loop values='data:feedLinks' var='feedLink'>
+                <data:feedLink.url />
+                <data:feedLink.name />
+                <data:feedLink.feedType />
+                <data:feedLink.mimeType />
+              </b:loop>
+              <b:loop values='data:comments' var='comment'>
+                <data:comment.id />
+                <data:comment.inReplyTo />
+                <data:comment.cmtBodyIdPostfix />
+                <data:comment.url />
+                <data:comment.body />
+                <data:comment.timestamp />
+                <data:comment.timestampValue />
+                <data:comment.timestampAbs />
+                <data:comment.author />
+                <data:comment.authorUrl />
+                <data:comment.authorUserType />
+                <data:comment.authorPhoto.url />
+                <data:comment.authorPhoto.width />
+                <data:comment.authorPhoto.height />
+                <data:comment.authorAvatarSrc />
+                <data:comment.authorAvatarImage />
+                <data:comment.anchorName />
+                <data:comment.deleteUrl />
+                <data:comment.isDeleted />
+                <data:comment.adminClass />
+              </b:loop>
+              <b:loop values='data:enclosures' var='enclosure'>
+                <data:enclosure.url />
+                <data:enclosure.mimeType />
+              </b:loop>
+            </b:loop>
 
-  <b:section id='footer' class='footer' showaddelement='no'>
-  </b:section>
-    
-&lt;/body&gt;&lt;!--</body>&gt;
+          </b:includable>
+        </b:widget>
+      </b:section>
+
+      <b:section class='footer' id='footer' name='footer' showaddelement='no' tag='footer'>
+
+      </b:section>
+      
+      <b:message name='messages.poweredByBlogger' />
+      
+    </div>
+    &lt;/body&gt;&lt;!--</body>--&gt;
 </html>

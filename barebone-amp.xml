@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html amp='amp' lang='en'>
+&lt;!-- <head> --&gt;
+    <meta charset='utf-8'/>
+    <meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
+    <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
+    <title><data:blog.pageTitle/></title>
+    <link expr:href='data:blog.url' rel='canonical'/>
+    &lt;!-- <b:skin><![CDATA[]]></b:skin>
+    <style amp-custom='amp-custom'>
+      body {font-family: sans-serif;line-height: 1.5rem;}
+      .main {margin: 0 auto;padding: 1rem;}
+    </style>
+    <style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate='amp-boilerplate'>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+
+</head>
+<body>
+    
+  <b:section id='header' class='header' showaddelement='no'>
+  </b:section>
+
+  <b:section id='main' class='main' showaddelement='yes'>
+  </b:section>
+
+  <b:section id='sidebar' class='main' showaddelement='yes'>
+  </b:section>  
+
+  <b:section id='footer' class='footer' showaddelement='no'>
+  </b:section>
+    
+&lt;/body&gt;&lt;!--</body>&gt;
+</html>
